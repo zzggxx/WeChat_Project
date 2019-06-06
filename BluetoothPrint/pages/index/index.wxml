@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container">
+  
+  <!-- id:组件属性 -->
+  <view class="userinfo" id="{{id}}"> 
+
+    <!-- hasUserInfo:控制属性 -->
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  
+  </view>
+  
+  <!-- 单行注释  样式和文字的添加-->
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <!-- checked:关键字的写法,里边可以进行简单的三元运算,id组件属性 -->
+  <checkbox checked="{{true ? false : true}}"  id='{{id2}}'></checkbox>>
+
+  <!-- 算术计算 和 字符串之间的计算 -->
+  <view> {{a+b}} + {{c}} + d</view>
+  <view> {{"hello" + 111}} </view>
+
+  <!-- 逻辑运算 -->
+  <view wx:if = " {{a>5}} "></view>
+
+  <!-- 数据路径计算 -->
+  <view> {{object.key}} {{array[0]}} </view>
+
+</view>
