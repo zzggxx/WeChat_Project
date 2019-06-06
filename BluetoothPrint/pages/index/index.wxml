@@ -31,4 +31,9 @@
   <!-- 数据路径计算 -->
   <view> {{object.key}} {{array[0]}} </view>
 
+  <!-- 组合????????????? -->
+
+  <!-- 数组 -->
+  <view wx:for = "{{[customer_zero,1,2,3]}}">{{item}}</view>
+
 </view>

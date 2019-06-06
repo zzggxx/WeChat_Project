@@ -21,6 +21,8 @@ Page({
     },
     array:["main"],
 
+    customer_zero:0,
+
     // 控件的属性数据
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
