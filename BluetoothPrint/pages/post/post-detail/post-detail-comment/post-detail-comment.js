@@ -19,23 +19,13 @@ Page({
 
     this.dbPost = new DBPostES6(id);
 
-
-
-
-
-
-
-
-
-
-    
     var comments = this.dbPost.getCommentData();
 
     console.log(comments);
 
-    // this.setData({
-      // comment:comments
-    // })
+    this.setData({
+      comments:comments
+    })
   },
 
   /**
