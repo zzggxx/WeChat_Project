@@ -1,13 +1,22 @@
 {
+  
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/post/post",
+    "pages/post/post-detail/post-detail",
+    "pages/post/post-detail/post-detail-comment/post-detail-comment",
+    "pages/logs/logs",
+    "pages/test/test"
   ],
+  
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true,
+
+    "navigationBarBackgroundColor": "#ecc08a",
+    "navigationBarTitleText": "简单的入门程序_蓝牙打印",
     "navigationBarTextStyle": "black"
   },
+  
   "sitemapLocation": "sitemap.json"
 }

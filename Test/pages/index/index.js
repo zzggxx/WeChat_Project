@@ -4,7 +4,16 @@ const app = getApp()
 
 Page({
   data: {
-
+    array: [
+    {
+      message: 'foo',
+    }, {
+      message: 'bar'
+    }, {
+      message: 'bar2'
+    }, {
+      message: 'bar3'
+    }]
   },
 
   onLoad: function (options) {

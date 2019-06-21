@@ -8,3 +8,9 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.text{
+  font-family: Microsoft YaHei;
+  color:#666;
+  size: 24rpx;
+}

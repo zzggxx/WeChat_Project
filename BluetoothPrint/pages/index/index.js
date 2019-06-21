@@ -29,10 +29,26 @@ Page({
 
   },
 
+// 欢迎界面跳转到文章列表界面
+  onTapJump:function(event){
+    wx.navigateTo({
+      url: '../post/post',
+    })
+  },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../logs/logs',
+      success:function(){
+        console.log("jump success");
+      },
+      failed:function(){
+        console.log("jump failed");
+      },
+      complete:function(){
+        console.log("jump complete");
+      }
     })
   },
 

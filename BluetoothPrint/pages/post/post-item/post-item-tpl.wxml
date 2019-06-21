@@ -1,0 +1,37 @@
+<template name="simple">
+
+   <!-- 文章列表 -->
+    <view class='post-container'>
+
+      <!-- 作者姓名 -->
+      <view class='post-author-date'>
+        <image style='width:50rpx; height:50rpx' src='{{avatar}}'></image>
+        <text class='post-author-date text'>{{date}}</text>
+      </view>
+
+      <!-- 标题 -->
+      <text class='post-title'>{{title}}</text>
+
+      <!-- 配图 -->
+      <image class='post-image' src='{{postImg}}'></image>
+
+      <!-- 简单介绍 -->
+      <text class='post-content'>{{content}}</text>
+
+      <!-- 文章列表的底部icon项 -->
+      <view class='post-like'>
+
+        <image class='post-like image' src='/images/icon/wx_app_collect.png'></image>
+        <text class='post-like text'>{{collectionNum}}</text>
+
+        <image class='post-like image' src='/images/icon/wx_app_view.png'></image>
+        <text class='post-like text'>{{readingNum}}</text>
+
+        <image class='post-like image' src='/images/icon/wx_app_message.png'></image>
+        <text class='post-like text'>{{commentNum}}</text>
+
+      </view>
+
+    </view>
+
+</template>

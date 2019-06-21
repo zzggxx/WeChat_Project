@@ -1,5 +1,7 @@
 //app.js
 App({
+
+  // 启动的展示,若是需要在启动的时候做什么就在这里做
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -33,6 +35,8 @@ App({
       }
     })
   },
+
+  // 用来存贮整个小程序使用期间的公共数据
   globalData: {
     userInfo: null
   }

@@ -1,6 +1,16 @@
 //app.js
 App({
+
   onLaunch: function () {
+  
+    // 缓存文章的数据
+    var postList  = wx.getStorageSync("postList");
+    if(!postList) {
+      var dataObject = require('data/data.js');
+      wx.clearStorage();
+      wx.setStorageSync('postList', dataObject.postList);
+    }
+  
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

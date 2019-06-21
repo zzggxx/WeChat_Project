@@ -7,11 +7,13 @@
 
   <!-- flex-wrap:是wxss中定义的样式 -->
   <view class="flex-wrp">
+  
     <!-- item样式,前边的flex-item只是一个提示 -->
     <view class="flex-item bc_green">1</view>
     <view class="flex-item bc_red">2</view>
     <view class="flex-item bc_blue">3</view>
   </view>
+
 </view>
 
 
@@ -24,5 +26,17 @@
     <view class="flex-item bc_red">2</view>
     <view class="flex-item bc_blue">3</view>
   </view>
+
+  <view wx:for="{{array}}" wx:for-index='idx' wx:for-item='itemName'>
+    <!-- <view wx:for="{{array}}"> -->
+    <!-- {{index}}: {{item.message}}  -->
+    {{idx}}: {{itemName.message}} 
+  </view>
+
+
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
 
 </view>

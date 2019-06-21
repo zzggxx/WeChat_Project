@@ -1,4 +1,46 @@
 /**index.wxss**/
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #00ff00 */
+}
+
+page{
+  background-color:#ecc08a 
+}
+
+.avatar{
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 160rpx;
+}
+
+.motto{
+  margin-top: 100rpx;
+  font-size:  32rpx;
+  font-weight: bold;
+  color: #9f4311
+}
+
+.journey-container {
+  margin-top: 100rpx;
+  width: 200rpx;
+  height: 80rpx;
+  background: #ffffff;
+  border-radius: 15rpx;
+  border: 1px solid #405f80;
+  text-align: center
+}
+
+.journey{
+  font-size: 22rpx;
+  font-weight: bold;
+  line-height: 80rpx;
+  color: #000000
+}
+
+
 .userinfo {
   display: flex;
   flex-direction: column;
