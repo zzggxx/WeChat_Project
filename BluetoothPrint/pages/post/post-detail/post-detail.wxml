@@ -5,6 +5,7 @@
 
   <text class="title">{{post.title}}</text>
 
+  <!-- 经典的居中问题 -->
   <view class="author-date">
     <view class="author-box">
       <image class="avatar" src="{{post.avatar}}"></image>
@@ -13,6 +14,7 @@
     <text class="date">{{post.dateTime}}</text>
   </view>
 
+  <!-- 正文 -->
   <text class="detail">{{post.detail}}</text>
 
 </view>
@@ -20,12 +22,14 @@
 <view class="tool">
 
   <!-- 点赞 -->
+  <!-- data-post-id:配置item的id属性 -->
   <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
     <image wx:if="{{post.upStatus}}" src="/images/icon/wx_app_liked.png" />
-    <image wx:else  src='/images/icon/wx_app_like.png'></image>
+    <image wx:else src='/images/icon/wx_app_like.png'></image>
     <text>{{post.upNum}}</text>
   </view>
 
+<!-- 评论 -->
   <view class="tool-item comment" catchtap="onCommentTap" data-post-id="{{post.postId}}">
     <image src="/images/icon/wx_app_message.png"></image>
     <text>{{post.commentNum}}</text>

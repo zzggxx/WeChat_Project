@@ -24,6 +24,7 @@ Page({
 
 // 跳转到详情界面
   onTapToDetail:function(event){
+    // event.cuttentTarget.dataset注意
     var postId = event.currentTarget.dataset.postId;
     wx.navigateTo({
       url: 'post-detail/post-detail?id='+postId,
@@ -56,9 +57,9 @@ Page({
       // var dbPost = new DBPost();
       // this.setData({
       //   postList:dbPost.getAllPostData()
-      // });
+      // }); 
 
-      //使用数据库的ES6方式加载
+      //使用数据库的ES6方式加载(其中包括了数据的缓存和加载)
       var dbPostES6 = new DBPostES6();
       this.setData({
         postList: dbPostES6.getAllPostData()

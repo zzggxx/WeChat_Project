@@ -1,3 +1,5 @@
+// 本地的缓存数据
+
 var postList = [{
   date: "Jan 28 2017",
   title: "小时候的冰棍儿与雪糕",

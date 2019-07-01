@@ -8,6 +8,7 @@
   overflow-y: hidden;
 }
 
+/* 注意此处的样式 */
 .comment-main-box {
   position: absolute;
   top: 0;
@@ -113,6 +114,7 @@
 
 
 /*******************评论框**********************/
+/* 整体外框 */
 .input-box{
     position: absolute;
     bottom: 0;

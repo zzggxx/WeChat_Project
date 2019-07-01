@@ -23,11 +23,12 @@
         <view class="comment-body">
 
           <!-- 文字的内容 -->
+          <!-- 这里的条件判断是什么意思??? -->
           <view class="comment-txt" wx:if="{{item.content.txt}}">
             <text>{{item.content.txt}}</text>
           </view>
 
-          <!-- 声音评论 -->
+          <!-- 语音评论 -->
           <view class="comment-voice" wx:if="{{item.content.audio && item.content.audio.url}}">
             <view data-url="{{item.content.audio.url}}" class="comment-voice-item" catchtap="playAudio">
               <image src="/images/icon/wx_app_voice.png" class="voice-play"></image>
@@ -37,6 +38,7 @@
 
           <!-- 图片评论 -->
           <view class="comment-img" wx:if="{{item.content.img.length!=0}}">
+            <!-- imgIdx此处定义的图片的索引,idx条目的索引(是外层定义的) -->
             <block wx:for="{{item.content.img}}" wx:for-item="img" wx:for-index="imgIdx">
               <image src="{{img}}" mode="aspectFill" catchtap="previewImg" data-comment-idx="{{idx}}" data-img-idx="{{imgIdx}}"></image>
             </block>
@@ -48,6 +50,32 @@
 
       </view>
     </block>
-
   </view>
+
+  <!-- 按住说话的输入框 -->
+  <view class="input-box">
+
+    <view class="send-msg-box">
+
+      <!-- 录音输入框 -->
+      <view hidden="{{useKeyboardFlag}}" class="input-item">
+        <image src="/images/icon/wx_app_keyboard.png" class="comment-icon keyboard-icon" catchtap="switchInputType"></image>
+        <input class="input speak-input {{recodingClass}}" value="按住 说话" disabled="disabled" catchtouchstart="recordStart" catchtouchend="recordEnd" />
+      </view>
+
+      <!-- 文字输入框 -->
+      <view hidden="{{!useKeyboardFlag}}" class="input-item">
+        <image class="comment-icon speak-icon" src="/images/icon/wx_app_speak.png" catchtap="switchInputType"></image>
+        <!--input keyboard-input:其中wxss中有.input和.keyboard-input两个样式,这么写的意思就是有两种样式,两者的属性基本是不冲突的  -->
+        <!-- value:输入框的初始化内容,需要在data中赋值 -->
+        <!-- placeholder:输入框的提示内容 -->
+        <input class="input keyboard-input" value="{{keyboardInputValue}}" focus="true" bindconfirm="submitComment" bindinput="bindCommentInput" placeholder="说点什么吧……" />
+      </view>
+      <image class="comment-icon add-icon" src="/images/icon/wx_app_add.png" catchtap="sendMoreMsg"></image>
+
+      <view class="submit-btn" catchtap="submitComment">发送</view>
+
+    </view>
+  </view>
+
 </view>

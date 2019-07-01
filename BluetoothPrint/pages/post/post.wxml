@@ -1,27 +1,32 @@
-<import src="post-item/post-item-tpl.wxml"/>
+<import src="post-item/post-item-tpl.wxml" />
 <!--pages/post/post.wxml-->
 <view>
 
+  <!-- 轮播图 -->
   <swiper class='swiper-style' indicator-dots='true' autoplay='true' interval='3000' vertical='{{false}}'>
 
     <swiper-item class='swiper-item-styler'>
-      <image class='swiper-item-image' mode='aspeactFill' src='/images/post/post-1@text.jpg'></image>
+      <image class='swiper-item-image' mode='aspeactFill' src='/images/post/post-1@text.jpg'/>
     </swiper-item>
 
     <swiper-item class='swiper-item-styler'>
-      <image class='swiper-item-image' mode='scaleToFill' src='/images/post/post-2@text.jpg'></image>
+      <image class='swiper-item-image' mode='scaleToFill' src='/images/post/post-2@text.jpg'/>
     </swiper-item>
 
     <swiper-item class='swiper-item-styler'>
       <!-- 注意这里的样式的写法 -->
-      <image style='width:100%; height:100%' mode='aspeactFill' src='/images/post/post-3@text.jpg'></image>
+      <image style='width:100%; height:100%' mode='aspeactFill' src='/images/post/post-3@text.jpg'/>
     </swiper-item>
 
   </swiper>
 
+  <!-- 文章列表 -->
+  <!-- 模板   -->
   <block wx:for="{{postList}}" wx:for-item="item1" wx:for-index="idx">
     <view catchtap='onTapToDetail' data-post-id='{{item1.postId}}'>
-      <template is='simple' data="{{...item1}}"/>
+      <!--  使用模板事件需要外包一个view来绑定事件 -->
+      <!-- ...item1 使用扩展运算符消除template对于外部变量名的依赖 -->
+      <template is='simple' data="{{...item1}}" />
     </view>
   </block>
 

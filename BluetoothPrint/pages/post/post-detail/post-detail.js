@@ -15,7 +15,7 @@ Page({
 
   // 收藏的方法
   onCollectionTap: function(event) {
-
+    // 数据库写在了类数据中,执行数据库中的collect()方法.
     var newData = this.dbPost.collect();
 
     this.setData({
@@ -51,6 +51,7 @@ Page({
 
   },
 
+  // 评论
   onCommentTap: function(event) {
     var id = event.currentTarget.dataset.postId;
     wx.navigateTo({
@@ -68,7 +69,7 @@ Page({
     var postId = options.id;
     console.log("haha___" + postId);
 
-    // 使用数据库得到相关的数据 
+    // 使用数据库得到相关的数据,将数据写在数据中
     this.dbPost = new DBPostES6(postId);
     this.postData = this.dbPost.getPostItemById().data;
     this.setData({

@@ -1,12 +1,16 @@
+// 数据调用使用了require而wxml和wxss使用了import
 const util = require('../utils/util.js')
 
+// 数据库的操作方法
 class DBPostES6 {
 
+  // 构造方法,注意没有变量的声明,需要写this
   constructor(postId) {
     this.storageKayName = 'postList';
     this.postId = postId;
   }
 
+  // 获取全部数据,添加缓存
   getAllPostData() {
     var res = wx.getStorageSync(this.storageKayName);
     if (!res) {
@@ -20,11 +24,13 @@ class DBPostES6 {
     wx.setStorageSync(this.storageKayName, data);
   }
 
+  // 根据id获取数据,id由构造方法传入的.
   getPostItemById() {
     var postsData = this.getAllPostData();
     var len = postsData.length;
     for (var i = 0; i < len; i++) {
       if (postsData[i].postId == this.postId) {
+        // 元素本身的含义?
         return {
           index: i,
           data: postsData[i]
@@ -33,21 +39,29 @@ class DBPostES6 {
     }
   }
 
+  // 新增评论
+  newComment(newComment) {
+    this.updatePostData('comment', newComment);
+  }
+
   // 收藏文章
   collect() {
-    return this.updatePostData('collect');
+    return updatePostData('collect');
   }
+
   // 点赞文章
   up() {
-    return this.updatePostData('up');
+    return updatePostData('up');
   }
 
-  // 更新数据
-  updatePostData(category) {
+  // 根据类型,更新数据   收藏和点赞用
+  updatePostData(category, newComment) {
 
-    var itemData = this.getPostItemById(),
-      postData = itemData.data,
-      allPostData = this.getAllPostData();
+    // 在文章详情中每一个子类都持有一个数据库,所以都有一个唯一的id.
+    var itemData = this.getPostItemById();
+    // 已经存在了定义所以这里不用定义了??????????????????????????
+    var postData = itemData.data;
+    var allPostData = this.getAllPostData();
 
     switch (category) {
       case 'collect':
@@ -67,6 +81,10 @@ class DBPostES6 {
           postData.upStatus = false;
           postData.upNum--;
         }
+        break
+      case 'comment':
+        postData.comments.push(newComment);
+        postData.commentNum++;
         break
       default:
         break;
